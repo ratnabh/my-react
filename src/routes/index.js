@@ -8,6 +8,8 @@ import Home from "../containers/home";
 import { Login } from "../containers/login";
 import { ProtectedRoute } from "../components/ProtectedRoute";
 import { UnProtected } from "../components/UnProtected";
+import { Dashboard } from "../containers/dashboard";
+import { Settings } from "../containers/settings";
 
 export const RoutesHandler = () => {
   const routes = [
@@ -18,6 +20,20 @@ export const RoutesHandler = () => {
         {
           path: "",
           element: <Home />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <ProtectedRoute requiredRole="admin" />,
+      children: [
+        {
+          path: "dashboard",
+          element: <Dashboard />,
         },
       ],
     },

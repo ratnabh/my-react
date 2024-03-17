@@ -8,6 +8,7 @@ const initialState = {
   error: null,
   success: false,
   isAuthenticated: false,
+  permissions: ["user"],
 };
 
 export const authSlice = createSlice({
